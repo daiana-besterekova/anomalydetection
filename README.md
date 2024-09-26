@@ -34,9 +34,33 @@ While working on this project, I initially explored using STL (Seasonal-Trend De
 
 This combination of methods ensures effective and efficient anomaly detection while accommodating the real-time nature of the data.
 
+## Data Stream Pattern and Visualization
+The data stream in this project was generated experimentally using a sinusoidal function to imitate Requirement 2, which specifies "incorporating regular patterns, seasonal elements, and random noise." By adjusting the frequency and amplitude of the sine wave, I was able to create a base pattern that simulates the regularity of natural processes. On top of this, I introduced random noise and spikes to mimic real-world data with occasional anomalies.
+
+**Visualizations and Anomaly Detection**
+
+In the two visualizations produced by the project, we observe the detection and classification of anomalies:
+
+- Confirmed anomalies are shown in red, representing data points flagged by both the Z-score/neighbor threshold layer and the second layer of Isolation Forest.
+- Unconfirmed anomalies (those detected by deviations in the first layer but not validated by Isolation Forest) are marked in orange. This design choice allows for human validation, offering the flexibility to investigate points that are flagged initially but not confirmed.
+
+While some points in the dataset may appear mislabeled as anomalies, this is an expected outcome. Given that the algorithm is unsupervised, it does not have prior knowledge of the correct classifications and learns over time as the simulation progresses.
+
+
+![Figure 1](https://github.com/daiana-besterekova/anomalydetection/blob/main/Figure_1.png)
+
+![Figure 2](https://github.com/daiana-besterekova/anomalydetection/blob/main/Figure_2.png)
+
+**Adjustability of Parameters**
+
+The parameters that define the patterns in the data stream, such as the frequency of the sinusoidal wave, the amount of noise, and the thresholds for detecting anomalies, can be easily changed and adjusted as needed. This flexibility allows the system to be fine-tuned to various real-world scenarios and datasets, making it adaptable for different use cases.
+
+This method ensures that the model remains scalable while maintaining the ability to process real-time data streams efficiently, even with the challenges of noise and seasonal variation.
+
 ## References
 - https://www.statsmodels.org/stable/examples/notebooks/generated/stl_decomposition.html 
 - https://towardsdatascience.com/isolation-forest-with-statistical-rules-4dd27dad2da9
 - https://dataheroes.ai/glossary/z-score-for-anomaly-detection/#:~:text=Calculating%20standard%20deviation%3A%20The%20next,for%20everything%20within%20the%20dataset
 - https://towardsdatascience.com/detecting-real-time-and-unsupervised-anomalies-in-streaming-data-a-starting-point-760a4bacbdf8
-
+- https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html
+- https://www.analyticsvidhya.com/blog/2021/07/anomaly-detection-using-isolation-forest-a-complete-guide/
