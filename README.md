@@ -1,4 +1,4 @@
-# anomalydetection
+# Efficient Data Stream Anomaly Detection
 
 ## Steps to Run the Project
 1. Clone the Repository If your project is hosted on GitHub or another version control platform, clone it by running:
@@ -11,3 +11,5 @@
 4. Install Dependencies Install all the required packages specified in requirements.txt: `pip install -r requirements.txt`
 5. Run the Project Run the main script to start your data stream and anomaly detection processes: `python main.py`
 6. Deactivate the Virtual Environment (Optional): `deactivate`
+
+
